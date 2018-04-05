@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="../jquery-3.3.1.min.js"></script>
+    <title>Exercice 4</title>
+    <!--On mets du style dans le head pour l'appliquer pour notre rectangle-->
+    <style>
+      #rectangle{
+        background-color: blue;
+        height: 10px;
+        width: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--On crée les 5 boutons -->
+    <button type="button" name="button" id="buttonHeight">Taille</button>
+    <button type="button" name="button" id="rectangleGreen">Vert</button>
+    <button type="button" name="button" id="initialColor">Original</button>
+    <button type="button" name="button" id="rectangleHide">Cacher</button>
+    <button type="button" name="button" id="rectangleShow">Voir</button><br/>
+    <!-- On crée une div pour le rectangle-->
+    <div id="rectangle"></div>
+  <script>
+    $(function(){
+      var start = $('#rectangle').css('background-color');//variable pour les parametres de depart du rectangle
+      $('#buttonHeight').click(function(){//Fonction click
+        var rectangleHeight = $('#rectangle').css('height');//variable original du rectangle
+        if (parseFloat(rectangleHeight) > 100){
+          $('#rectangle').css('height','10px');//Si le rectangle depasse 100 il revient a 10
+        } else {
+          var rectangleHeight = parseFloat(rectangleHeight) + 10 + 'px';
+          $('#rectangle').css('height',rectangleHeight);//Sinon il peu continué a prendre 10 a chaque clique
+        }
+      });
+      $('#rectangleGreen').click(function(){
+        $('#rectangle').css('background-color','green');//On mets le rectagle en vert
+      });
+      $('#initialColor').click(function(){
+        $('#rectangle').css('background-color', start);//On mets le rectangle a sa couleur d'origine
+      });
+      $('#rectangleHide').click(function(){
+        $('#rectangle').hide();//On cache le rectangle
+      });
+      $('#rectangleShow').click(function(){
+        $('#rectangle').show();//On montre le rectangle
+      });
+    });
+  </script>
+  </body>
+</html>
